@@ -1,0 +1,93 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-6">Cadastro de Equipamento</h2>
+  <form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <!-- Identificação -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div>
+        {{ form.name.label(class="label") }}
+        {{ form.name(class="input input-bordered w-full", placeholder="Ex: Sensor de Umidade") }}
+      </div>
+      <div>
+        {{ form.pn.label(class="label") }}
+        {{ form.pn(class="input input-bordered w-full", placeholder="Ex: PN-12345") }}
+      </div>
+      <div>
+        {{ form.model_number.label(class="label") }}
+        {{ form.model_number(class="input input-bordered w-full", placeholder="Ex: MDL-6789") }}
+      </div>
+      <div>
+        {{ form.serial_number.label(class="label") }}
+        {{ form.serial_number(class="input input-bordered w-full", placeholder="Ex: SN-0001") }}
+      </div>
+    </div>
+
+    <!-- Localização e Projeto -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div>
+        {{ form.machine_installed.label(class="label") }}
+        {{ form.machine_installed(class="input input-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.image_ref.label(class="label") }}
+        {{ form.image_ref(class="input input-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.asset_tag.label(class="label") }}
+        {{ form.asset_tag(class="input input-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.category.label(class="label") }}
+        {{ form.category(class="input input-bordered w-full") }}
+      </div>
+    </div>
+
+    <!-- Atribuições -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div>
+        {{ form.brand.label(class="label") }}
+        {{ form.brand(class="input input-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.owner_id.label(class="label") }}
+        {{ form.owner_id(class="select select-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.current_responsible_id.label(class="label") }}
+        {{ form.current_responsible_id(class="select select-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.location_id.label(class="label") }}
+        {{ form.location_id(class="select select-bordered w-full") }}
+      </div>
+    </div>
+
+    <!-- Projeto e Status -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+      <div>
+        {{ form.project_id.label(class="label") }}
+        {{ form.project_id(class="select select-bordered w-full") }}
+      </div>
+      <div>
+        {{ form.status_id.label(class="label") }}
+        {{ form.status_id(class="select select-bordered w-full") }}
+      </div>
+    </div>
+
+    <!-- Observações -->
+    <div class="mb-6">
+      {{ form.notes.label(class="label") }}
+      {{ form.notes(class="textarea textarea-bordered w-full", placeholder="Observações adicionais...") }}
+    </div>
+
+    <!-- Botão -->
+    <div class="text-right">
+      {{ form.submit(class="btn btn-primary") }}
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>FormulÃ¡rio - Dealers</h2>
+<form method="POST">
+{{ form.hidden_tag() }}
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>RazÃ£o Social</label><br>
+  {{ form.razao_social.label }} {{ form.razao_social(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>EndereÃ§o</label><br>
+  {{ form.endereco.label }} {{ form.endereco(class='textarea textarea-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>CNPJ</label><br>
+  {{ form.cnpj.label }} {{ form.cnpj(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Representante Legal</label><br>
+  {{ form.representante_nome.label }} {{ form.representante_nome(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>E-mail do Representante</label><br>
+  {{ form.representante_email.label }} {{ form.representante_email(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Telefone do Representante</label><br>
+  {{ form.representante_telefone.label }} {{ form.representante_telefone(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>FunÃ§Ã£o/Cargo do Representante</label><br>
+  {{ form.representante_funcao.label }} {{ form.representante_funcao(class='input input-bordered') }}
+</div>
+<div>
+  {{ form.submit(class='btn btn-primary') }}
+</div>
+</form>
+{% endblock %}

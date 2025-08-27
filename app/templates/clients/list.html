@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Clientes</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Nome/Razão Social</th>
+            <th>Endereço</th>
+            <th>CPF/CNPJ</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.tipo }}</td>
+            <td>{{ client.nome_razao }}</td>
+            <td>{{ client.endereco }}</td>
+            <td>{{ client.cpf or client.cnpj }}</td>
+            <td>{{ client.email or client.representante_email }}</td>
+            <td>{{ client.telefone or client.representante_telefone }}</td>
+            <td>
+                <a href="{{ url_for('clients.edit', id=client.id) }}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{{ url_for('clients.delete', id=client.id) }}" class="btn btn-secondary btn-sm">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+
+
+

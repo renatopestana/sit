@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Concessionários</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Razão Social</th>
+            <th>Endereço</th>
+            <th>CNPJ</th>
+            <th>Representante</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th>Função</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for dealer in dealers %}
+        <tr>
+            <td>{{ dealer.razao_social }}</td>
+            <td>{{ dealer.endereco }}</td>
+            <td>{{ dealer.cnpj }}</td>
+            <td>{{ dealer.representante_nome }}</td>
+            <td>{{ dealer.representante_email }}</td>
+            <td>{{ dealer.representante_telefone }}</td>
+            <td>{{ dealer.representante_funcao }}</td>
+            <td>
+                <a href="{{ url_for('dealers.edit', id=dealer.id) }}" class="btn btn-primary btn-sm">Editar</a>
+                <a href="{{ url_for('dealers.delete', id=dealer.id) }}" class="btn btn-secondary btn-sm">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

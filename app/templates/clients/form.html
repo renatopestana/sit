@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>FormulÃ¡rio - Clients</h2>
+<form method="POST">
+{{ form.hidden_tag() }}
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Tipo de Cliente</label><br>
+  {{ form.tipo.label }} {{ form.tipo(class='radio') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Nome / RazÃ£o Social</label><br>
+  {{ form.nome_razao.label }} {{ form.nome_razao(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>EndereÃ§o</label><br>
+  {{ form.endereco.label }} {{ form.endereco(class='textarea textarea-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Nacionalidade</label><br>
+  {{ form.nacionalidade.label }} {{ form.nacionalidade(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Estado Civil</label><br>
+  {{ form.estado_civil.label }} {{ form.estado_civil(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>ProfissÃ£o</label><br>
+  {{ form.profissao.label }} {{ form.profissao(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>RG</label><br>
+  {{ form.rg.label }} {{ form.rg(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Ã“rgÃ£o Emissor do RG</label><br>
+  {{ form.orgao_emissor_rg.label }} {{ form.orgao_emissor_rg(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>CPF</label><br>
+  {{ form.cpf.label }} {{ form.cpf(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>E-mail</label><br>
+  {{ form.email.label }} {{ form.email(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Telefone</label><br>
+  {{ form.telefone.label }} {{ form.telefone(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>CNPJ/CPF</label><br>
+  {{ form.cnpj.label }} {{ form.cnpj(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Representante Legal</label><br>
+  {{ form.representante_nome.label }} {{ form.representante_nome(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>E-mail do Representante</label><br>
+  {{ form.representante_email.label }} {{ form.representante_email(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>Telefone do Representante</label><br>
+  {{ form.representante_telefone.label }} {{ form.representante_telefone(class='input input-bordered') }}
+</div>
+<div class="form-group" style="margin-bottom: 1em;">
+  <label>FunÃ§Ã£o/Cargo do Representante</label><br>
+  {{ form.representante_funcao.label }} {{ form.representante_funcao(class='input input-bordered') }}
+</div>
+<div>
+  {{ form.submit(class='btn btn-primary') }}
+</div>
+</form>
+{% endblock %}

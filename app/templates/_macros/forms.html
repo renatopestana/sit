@@ -1,0 +1,17 @@
+{% macro field(control, label, type="text", placeholder="", hint="") %}
+<div class="form-control w-full">
+  <label class="label"><span class="label-text">{{ label }}</span></label>
+  {{ control(class_="input input-bordered w-full focus-ring", placeholder=placeholder, type=type) }}
+  {% if hint %}<label class="label"><span class="label-text-alt text-base-content/70">{{ hint }}</span></label>{% endif %}
+  {% for e in control.errors %}<label class="label"><span class="label-text-alt text-error">• {{ e }}</span></label>{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro textarea(control, label, placeholder="", hint="") %}
+<div class="form-control w-full">
+  <label class="label"><span class="label-text">{{ label }}</span></label>
+  {{ control(class_="textarea textarea-bordered w-full focus-ring", placeholder=placeholder, rows="3") }}
+  {% if hint %}<label class="label"><span class="label-text-alt text-base-content/70">{{ hint }}</span></label>{% endif %}
+  {% for e in control.errors %}<label class="label"><span class="label-text-alt text-error">• {{ e }}</span></label>{% endfor %}
+</div>
+{% endmacro %}
