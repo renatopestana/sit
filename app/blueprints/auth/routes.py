@@ -1,4 +1,4 @@
-﻿from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask import Blueprint, render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required, current_user
 from ...extensions import db
 from ...models import User
@@ -13,7 +13,7 @@ def register():
     form = RegisterForm()
     if form.validate_on_submit():
         if User.query.filter_by(email=form.email.data.lower()).first():
-            flash("E-mail jÃ¡ cadastrado.", "error")
+            flash("E-mail já cadastrado.", "error")
         else:
             user = User(full_name=form.full_name.data.strip(),
                         email=form.email.data.lower().strip(),
@@ -21,7 +21,7 @@ def register():
             user.set_password(form.password.data)
             db.session.add(user)
             db.session.commit()
-            flash("Conta criada com sucesso. FaÃ§a login.", "success")
+            flash("Conta criada com sucesso. Faça login.", "success")
             return redirect(url_for("auth.login"))
     return render_template("auth/register.html", form=form)
 
@@ -37,14 +37,14 @@ def login():
             flash("Bem-vindo!", "success")
             next_page = request.args.get("next") or url_for("main.index")
             return redirect(next_page)
-        flash("Credenciais invÃ¡lidas.", "error")
+        flash("Credenciais Inválidas.", "error")
     return render_template("auth/login.html", form=form)
 
 @auth_bp.route("/logout")
 @login_required
 def logout():
     logout_user()
-    flash("SessÃ£o encerrada.", "info")
+    flash("Sessão encerrada.", "info")
     return redirect(url_for("auth.login"))
 
 
